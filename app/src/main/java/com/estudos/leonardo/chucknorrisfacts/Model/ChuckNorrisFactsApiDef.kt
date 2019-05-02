@@ -5,5 +5,5 @@ import rx.Observable
 
 interface ChuckNorrisFactsApiDef {
     @GET ("random")
-    fun returnChuckNorrisFact() : Observable<ChucknorrisFactsWebResult>
+    fun returnChuckNorrisFact() : Observable<ChucknorrisFactsWeb>
 }
