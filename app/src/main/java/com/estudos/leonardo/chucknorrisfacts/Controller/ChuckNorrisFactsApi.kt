@@ -39,8 +39,9 @@ class ChuckNorrisFactsApi {
         service = retrofit.create<ChuckNorrisFactsApiDef>(ChuckNorrisFactsApiDef::class.java)
 
 
-    }
 
+    }
+    //retornar fatos no formato da classe de negocio
     fun loadFact(): Observable<ChuckNorrisFacts>?{
         return service.returnChuckNorrisFact()
             .flatMap { ChucknorrisFactsWebResult -> Observable.from(ChucknorrisFactsWebResult.result)}
