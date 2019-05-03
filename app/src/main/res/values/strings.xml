@@ -4,4 +4,6 @@
     <string name="welcome_text_2">Bem vindo ao app Fatos do Chuck Norris. Vamos começar?</string>
     <string name="welcome_text_1">Olá!</string>
     <string name="comecar">COMEÇAR</string>
+    <string name="textviewfact">TextViewFact</string>
+    <string name="textviewcategory">TextViewCategory</string>
 </resources>
