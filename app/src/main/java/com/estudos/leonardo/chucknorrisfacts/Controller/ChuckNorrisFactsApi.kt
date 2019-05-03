@@ -10,9 +10,9 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import rx.Observable
-import java.lang.reflect.Field
 
 class ChuckNorrisFactsApi {
+
 
     val service: ChuckNorrisFactsApiDef
 
@@ -39,16 +39,22 @@ class ChuckNorrisFactsApi {
     }
 
     //retornar fatos no formato da classe de negocio
-    fun loadFact(): Observable<ChuckNorrisFacts>? {
+    fun loadFact(): Observable<ChuckNorrisFacts> {
         return service.returnChuckNorrisFact()
             .map { factWeb ->
-                if (factWeb.category.isEmpty()) {
-                    ChuckNorrisFacts(listOf("UNCATEGORIZED"), factWeb.icon_url, factWeb.id, factWeb.url, factWeb.curiosity)
+                if (factWeb.category == null) {
+                    ChuckNorrisFacts(listOf("UNCATEGORIZED"), factWeb.icon_url,
+                        factWeb.id, factWeb.url, factWeb.curiosity
+                    )
                 } else {
                     ChuckNorrisFacts(factWeb.category, factWeb.icon_url, factWeb.id, factWeb.url, factWeb.curiosity)
                 }
+
+
             }
 
 
     }
+
+
 }

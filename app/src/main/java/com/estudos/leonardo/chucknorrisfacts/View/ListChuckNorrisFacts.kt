@@ -8,7 +8,7 @@ import com.estudos.leonardo.chucknorrisfacts.Controller.ChuckNorrisFactsApi
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
-class MainActivity : AppCompatActivity() {
+class ListChuckNorrisFacts : AppCompatActivity() {
 
     lateinit var listView: ListView
     lateinit var movieAdapter: ArrayAdapter<String>
