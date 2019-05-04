@@ -39,15 +39,19 @@ class ChuckNorrisFactsApi {
     }
 
     //retornar fatos no formato da classe de negocio
-    fun loadFact(): Observable<ChuckNorrisFacts> {
+    fun requestFact(): Observable<ChuckNorrisFacts> {
         return service.returnChuckNorrisFact()
             .map { factWeb ->
                 if (factWeb.category == null) {
-                    ChuckNorrisFacts(listOf("UNCATEGORIZED"), factWeb.icon_url,
+                    ChuckNorrisFacts(
+                        listOf("  UNCATEGORIZED  "), factWeb.icon_url,
                         factWeb.id, factWeb.url, factWeb.curiosity
                     )
                 } else {
-                    ChuckNorrisFacts(factWeb.category, factWeb.icon_url, factWeb.id, factWeb.url, factWeb.curiosity)
+                    ChuckNorrisFacts(
+                        factWeb.category, factWeb.icon_url,
+                        factWeb.id, factWeb.url, factWeb.curiosity
+                    )
                 }
 
 

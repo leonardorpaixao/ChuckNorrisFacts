@@ -6,4 +6,6 @@
     <string name="comecar">COMEÇAR</string>
     <string name="textviewfact">TextViewFact</string>
     <string name="textviewcategory">TextViewCategory</string>
+    <string name="button_request_fact">God Chuck Norris, inlight me!</string>
+    <string name="buttonshare">buttonShare</string>
 </resources>
