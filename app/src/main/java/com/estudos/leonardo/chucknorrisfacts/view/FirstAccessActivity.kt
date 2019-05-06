@@ -1,4 +1,4 @@
-package com.estudos.leonardo.chucknorrisfacts.View
+package com.estudos.leonardo.chucknorrisfacts.view
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -14,7 +14,7 @@ class FirstAccessActivity : AppCompatActivity() {
 
         buttonComecar.setOnClickListener(){
             finish()
-            startActivity(Intent(applicationContext, ListChuckNorrisFacts::class.java))
+            startActivity(Intent(applicationContext, RandomChuckNorrisFacts::class.java))
         }
     }
 

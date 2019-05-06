@@ -15,24 +15,23 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-
-
-        <activity
-                android:name="com.estudos.leonardo.chucknorrisfacts.View.SplashActivity">
+        <activity android:name=".view.ChuckNorrisFactByWord">
+        </activity>
+        <activity android:name=".view.DashBoardActivity">
+        </activity>
+        <activity android:name=".view.ChuckNorrisFactByCategory">
+        </activity>
+        <activity android:name=".view.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-
-        <activity android:name="com.estudos.leonardo.chucknorrisfacts.View.ListChuckNorrisFacts">
+        <activity android:name=".view.RandomChuckNorrisFacts">
         </activity>
-        <activity android:name="com.estudos.leonardo.chucknorrisfacts.View.FirstAccessActivity">
+        <activity android:name=".view.FirstAccessActivity">
         </activity>
-
-
     </application>
 
 </manifest>

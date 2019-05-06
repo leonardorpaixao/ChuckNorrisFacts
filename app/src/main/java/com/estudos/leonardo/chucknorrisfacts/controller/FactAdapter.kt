@@ -1,4 +1,4 @@
-package com.estudos.leonardo.chucknorrisfacts.Controller
+package com.estudos.leonardo.chucknorrisfacts.controller
 
 
 import android.content.Context
@@ -10,7 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.estudos.leonardo.chucknorrisfacts.Model.ChuckNorrisFacts
+import com.estudos.leonardo.chucknorrisfacts.model.ChuckNorrisFacts
 import com.estudos.leonardo.chucknorrisfacts.R
 import kotlinx.android.synthetic.main.fact_model.view.*
 

@@ -8,4 +8,8 @@
     <string name="textviewcategory">TextViewCategory</string>
     <string name="button_request_fact">God Chuck Norris, inlight me!</string>
     <string name="buttonshare">buttonShare</string>
+    <string name="random_joke">Random Joke</string>
+    <string name="joke_by_category">Joke by category</string>
+    <string name="joke_by_word">Joke by word</string>
+    <string name="category">Category</string>
 </resources>

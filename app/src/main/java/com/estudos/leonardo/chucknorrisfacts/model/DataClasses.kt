@@ -1,4 +1,4 @@
-package com.estudos.leonardo.chucknorrisfacts.Model
+package com.estudos.leonardo.chucknorrisfacts.model
 
 data class ChuckNorrisFacts(
     val category: List<String>?,
@@ -7,6 +7,8 @@ data class ChuckNorrisFacts(
     val url: String,
     var fact: String
 )
+
+data class Categories( val categories : List<String>)
 
 
 

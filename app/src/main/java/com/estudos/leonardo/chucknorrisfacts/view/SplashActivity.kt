@@ -1,12 +1,9 @@
-package com.estudos.leonardo.chucknorrisfacts.View
+package com.estudos.leonardo.chucknorrisfacts.view
 
-import android.app.backup.SharedPreferencesBackupHelper
-import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
 import com.estudos.leonardo.chucknorrisfacts.R
-import android.content.Context
 import android.content.Intent
 
 
@@ -28,7 +25,7 @@ class SplashActivity : AppCompatActivity() {
             startActivity(Intent(applicationContext, FirstAccessActivity::class.java))
             finish()
         }
-        else startActivity(Intent(applicationContext, ListChuckNorrisFacts::class.java))
+        else startActivity(Intent(applicationContext, DashBoardActivity::class.java))
         finish()
     }
 }
