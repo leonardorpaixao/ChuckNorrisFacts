@@ -12,4 +12,6 @@
     <string name="joke_by_category">Joke by category</string>
     <string name="joke_by_word">Joke by word</string>
     <string name="category">Category</string>
+    <string name="msgEmptySearch">Error: Please, insert any word!</string>
+    <string name="textviewerror">textViewError</string>
 </resources>

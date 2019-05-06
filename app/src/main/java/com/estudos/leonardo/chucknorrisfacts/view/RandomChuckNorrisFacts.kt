@@ -62,7 +62,7 @@ class RandomChuckNorrisFacts : AppCompatActivity() {
             }, { e ->
                 e.printStackTrace()
                 Snackbar.make(
-                    myConstraintLayout, "Erro: Sua oração foi fraca, tente novamente",
+                    randomJokeConstraintLayout, "Erro: Sua oração foi fraca, tente novamente",
                     Snackbar.LENGTH_LONG
                 ).show()
 

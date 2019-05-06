@@ -10,10 +10,13 @@ interface ChuckNorrisFactsApiDef {
     fun getRandomChuckNorrisFact(): Observable<ChucknorrisFactsWeb>
 
     @GET("random")
-    fun getFactFromCategory(@Query("category") category: String): Observable<ChucknorrisFactsWeb>
+    fun getFactByCategory(@Query("category") category: String): Observable<ChucknorrisFactsWeb>
 
     @GET("categories")
     fun getCategories() : Observable<List<String>>
+
+    @GET ("search")
+    fun getFactByWord(@Query("query") query: String): Observable<ChuckNorrisFactsResult>
 
     /*fun returnFactFromCategory(@Query("category") category : String): Observable<ChucknorrisFactsWeb>*/
 /*    @GET ("random")*/

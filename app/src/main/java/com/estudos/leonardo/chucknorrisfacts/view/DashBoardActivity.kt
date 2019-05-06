@@ -18,6 +18,9 @@ class DashBoardActivity : AppCompatActivity() {
         buttonJokeByCategory.setOnClickListener{
             startActivity(Intent(applicationContext, ChuckNorrisFactByCategory::class.java))
         }
+        buttonJokeByWord.setOnClickListener{
+            startActivity(Intent(applicationContext, ChuckNorrisFactByWord::class.java))
+        }
 
     }
 }

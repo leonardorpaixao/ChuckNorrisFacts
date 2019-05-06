@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.RandomChuckNorrisFacts" android:focusable="auto" android:elevation="8dp"
-        android:clickable="true" android:id="@+id/myConstraintLayout">
+        android:clickable="true" android:id="@+id/randomJokeConstraintLayout">
 
     <android.support.v7.widget.RecyclerView
             android:layout_width="0dp"

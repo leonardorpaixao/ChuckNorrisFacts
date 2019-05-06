@@ -60,7 +60,7 @@ class ChuckNorrisFactsApi {
     }
 
     fun requestFactByCategory(requestCategoty: String): Observable<ChuckNorrisFacts> {
-        return service.getFactFromCategory(requestCategoty)
+        return service.getFactByCategory(requestCategoty)
             .map { factWeb ->
                 if (factWeb.category == null) {
                     ChuckNorrisFacts(
@@ -83,30 +83,24 @@ class ChuckNorrisFactsApi {
             }
     }
 
-    /*fun loadMoviesFull(): Observable<ChuckNorrisFacts> {
-        return service.listMovies()
-            .flatMap { filmResults -> Observable.from(filmResults.results) }
-            .flatMap { film ->
-                val movieObj = Movie(film.title, film.episodeId, ArrayList<Character>())
-                Observable.zip(
-                    Observable.just(movieObj),
-                    Observable.from(film.personUrls)
-                        .flatMap { personUrl ->
-                            Observable.concat(
-                                getCache(personUrl),
-                                service.loadPerson(Uri.parse(personUrl).lastPathSegment)
-                                    .doOnNext { person ->
-                                        peopleCache.put(personUrl, person)
-                                    }
-                            ).first()
+    fun requestFactByWord(query: String): Observable<ChuckNorrisFacts>? {
+        return service.getFactByWord(query)
+            .flatMap { factResult ->
+                Observable.from(factResult.result)
+                    .map { factWeb ->
+                        if (factWeb.category == null) {
+                            ChuckNorrisFacts(
+                                listOf("  UNCATEGORIZED  "), factWeb.icon_url,
+                                factWeb.id, factWeb.url, factWeb.curiosity
+                            )
+                        } else {
+                            ChuckNorrisFacts(
+                                factWeb.category, factWeb.icon_url,
+                                factWeb.id, factWeb.url, factWeb.curiosity
+                            )
                         }
-                        .map { person ->
-                            Character(person!!.name, person.gender)
-                        }.toList(),
-                    { movie, characters ->
-                        movie.characters.addAll(characters)
-                        movie
-                    })
+                    }
             }
-    }*/
+
+    }
 }
