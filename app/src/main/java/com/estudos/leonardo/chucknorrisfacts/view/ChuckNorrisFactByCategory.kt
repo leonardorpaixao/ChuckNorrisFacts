@@ -23,7 +23,7 @@ class ChuckNorrisFactByCategory : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chucknorris_fact_by_category)
-
+        //Carregando categorias atualizadas no SpinnerAdapter
         val api = ChuckNorrisFactsApi()
         api.requestCategories()
             .subscribeOn(Schedulers.io())
@@ -37,12 +37,15 @@ class ChuckNorrisFactByCategory : AppCompatActivity() {
             }) { e ->
                 e.printStackTrace()
             }
+
+        //Definindo recyclerView adapter
         myAdapter = ChuckNorrisFactsListAdapter(this)
         recyclerViewfFactByCategory.adapter = myAdapter
         recyclerViewfFactByCategory.setHasFixedSize(true)
         recyclerViewfFactByCategory.layoutManager = LinearLayoutManager(this)
 
 
+        //definindo comportamentos para quando itens do spinner forem selecionados
         mySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -59,13 +62,12 @@ class ChuckNorrisFactByCategory : AppCompatActivity() {
 
 
         buttonRequest.setOnClickListener {
-            loadFacts()
+            loadFacts(this.selectedItem)
         }
-
-
     }
 
-    private fun loadFacts() {
+    //Função para solicitar um fato de ChuckNorris de acordo com uma categoria.
+    private fun loadFacts(selectedItem: String) {
         val api = ChuckNorrisFactsApi()
         api.requestFactByCategory(selectedItem.toLowerCase())
             .subscribeOn(Schedulers.io())
@@ -84,21 +86,10 @@ class ChuckNorrisFactByCategory : AppCompatActivity() {
 
     }
 
+    //Atualizar o Spinner Adapter a partir da lista de categorias obtidas.
+    fun updateAdapter(listOfCategories: List<String>) {
+        mySpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, listOfCategories)
+    }
 
-fun updateAdapter(list: List<String>) {
-    mySpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, list)
 }
 
-
-}
-/*fun loadCategories(){
-    val api = ChuckNorrisFactsApi()
-    api.requestCategories()
-        .subscribeOn(Schedulers.io())
-        ?.observeOn(AndroidSchedulers.mainThread())
-        ?.subscribe({
-            this.myList = it.categories
-        }){e ->
-            e.printStackTrace()
-        }
-}*/
