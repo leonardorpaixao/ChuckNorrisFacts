@@ -15,11 +15,15 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.ChuckNorrisFactByWord">
+        <activity android:name=".view.ChuckNorrisFactByWord"
+                  android:windowSoftInputMode="stateVisible|adjustResize"
+        >
         </activity>
         <activity android:name=".view.DashBoardActivity">
         </activity>
-        <activity android:name=".view.ChuckNorrisFactsByCategory">
+        <activity android:name=".view.ChuckNorrisFactsByCategory"
+                  android:windowSoftInputMode="stateVisible|adjustResize">
+
         </activity>
         <activity android:name=".view.SplashActivity">
             <intent-filter>
