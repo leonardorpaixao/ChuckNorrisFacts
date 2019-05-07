@@ -15,7 +15,8 @@ import rx.Observable
 class ChuckNorrisFactsApi {
 
 
-    val service: ChuckNorrisFactsApiDef
+    private val service: ChuckNorrisFactsApiDef
+
 
     init {
 

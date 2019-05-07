@@ -19,7 +19,7 @@
         </activity>
         <activity android:name=".view.DashBoardActivity">
         </activity>
-        <activity android:name=".view.ChuckNorrisFactByCategory">
+        <activity android:name=".view.ChuckNorrisFactsByCategory">
         </activity>
         <activity android:name=".view.SplashActivity">
             <intent-filter>

@@ -8,9 +8,9 @@
     <string name="textviewcategory">TextViewCategory</string>
     <string name="button_request_fact">God Chuck Norris, inlight me!</string>
     <string name="buttonshare">buttonShare</string>
-    <string name="random_joke">Random Joke</string>
-    <string name="joke_by_category">Joke by category</string>
-    <string name="joke_by_word">Joke by word</string>
+    <string name="random_fact">Random Fact</string>
+    <string name="fact_by_category">Fact by category</string>
+    <string name="fact_by_word">Fact by word</string>
     <string name="category">Category</string>
     <string name="msgEmptySearch">Error: Please, insert any word!</string>
     <string name="textviewerror">textViewError</string>

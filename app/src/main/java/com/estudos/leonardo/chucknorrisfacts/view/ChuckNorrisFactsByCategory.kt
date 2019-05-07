@@ -8,39 +8,28 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.estudos.leonardo.chucknorrisfacts.R
+import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactAdapter
 import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactsApi
-import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactsListAdapter
 import kotlinx.android.synthetic.main.activity_chucknorris_fact_by_category.*
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
-class ChuckNorrisFactByCategory : AppCompatActivity() {
+class ChuckNorrisFactsByCategory : AppCompatActivity() {
     var listCategories = listOf<String>()
     var selectedItem: String = ""
-    private lateinit var myAdapter: ChuckNorrisFactsListAdapter
+    private lateinit var myAdapterChuckNorris: ChuckNorrisFactAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chucknorris_fact_by_category)
         //Carregando categorias atualizadas no SpinnerAdapter
-        val api = ChuckNorrisFactsApi()
-        api.requestCategories()
-            .subscribeOn(Schedulers.io())
-            ?.observeOn(AndroidSchedulers.mainThread())
-            ?.subscribe({ categories ->
-
-                listCategories = categories.categories.map {
-                    it.toUpperCase()
-                }
-                updateAdapter(listCategories)
-            }) { e ->
-                e.printStackTrace()
-            }
+        listCategories = intent.getStringArrayListExtra("listCategoriesFromDashBoardActivity")
+        updateAdapter(listCategories)
 
         //Definindo recyclerView adapter
-        myAdapter = ChuckNorrisFactsListAdapter(this)
-        recyclerViewfFactByCategory.adapter = myAdapter
+        myAdapterChuckNorris = ChuckNorrisFactAdapter(this)
+        recyclerViewfFactByCategory.adapter = myAdapterChuckNorris
         recyclerViewfFactByCategory.setHasFixedSize(true)
         recyclerViewfFactByCategory.layoutManager = LinearLayoutManager(this)
 
@@ -60,7 +49,6 @@ class ChuckNorrisFactByCategory : AppCompatActivity() {
             }
         }
 
-
         buttonRequest.setOnClickListener {
             loadFacts(this.selectedItem)
         }
@@ -73,7 +61,7 @@ class ChuckNorrisFactByCategory : AppCompatActivity() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ fact ->
-                myAdapter.updateDataSet(fact)
+                myAdapterChuckNorris.updateDataSet(fact)
 
             }, { e ->
                 e.printStackTrace()
@@ -90,6 +78,5 @@ class ChuckNorrisFactByCategory : AppCompatActivity() {
     fun updateAdapter(listOfCategories: List<String>) {
         mySpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, listOfCategories)
     }
-
 }
 

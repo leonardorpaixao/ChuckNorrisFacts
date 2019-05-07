@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.estudos.leonardo.chucknorrisfacts.R
 import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactsApi
-import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactsListAdapter
+import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactAdapter
 import com.estudos.leonardo.chucknorrisfacts.model.ChuckNorrisFacts
 import kotlinx.android.synthetic.main.activity_random_chucknorris_fact.*
 import rx.android.schedulers.AndroidSchedulers
@@ -16,7 +16,7 @@ class RandomChuckNorrisFacts : AppCompatActivity() {
 
 
     lateinit var factsList: MutableList<ChuckNorrisFacts>
-    private lateinit var mAdapter: ChuckNorrisFactsListAdapter
+    private lateinit var mAdapterChuckNorris: ChuckNorrisFactAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,8 +24,8 @@ class RandomChuckNorrisFacts : AppCompatActivity() {
         setContentView(R.layout.activity_random_chucknorris_fact)
 
         //Carregamos a Recycler View com o ChuckNorrisListAdapter
-        mAdapter = ChuckNorrisFactsListAdapter(this)
-        myRecyclerView.adapter = mAdapter
+        mAdapterChuckNorris = ChuckNorrisFactAdapter(this)
+        myRecyclerView.adapter = mAdapterChuckNorris
         myRecyclerView.setHasFixedSize(true)
         myRecyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -57,7 +57,7 @@ class RandomChuckNorrisFacts : AppCompatActivity() {
             .subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribe({ fact ->
-                mAdapter.updateDataSet(fact)
+                mAdapterChuckNorris.updateDataSet(fact)
 
             }, { e ->
                 e.printStackTrace()
