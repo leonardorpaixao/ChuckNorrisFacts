@@ -37,7 +37,6 @@ class DashBoardActivity : AppCompatActivity() {
     //Atualiza lista de categorias dos fatos.
     fun getListOfCategories() {
         val api = ChuckNorrisFactsApi()
-        val list = listOf<String>()
         api.requestCategories()
             .subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())

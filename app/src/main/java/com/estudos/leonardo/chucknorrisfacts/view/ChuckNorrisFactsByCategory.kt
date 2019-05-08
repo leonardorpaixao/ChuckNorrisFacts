@@ -15,6 +15,7 @@ import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
 class ChuckNorrisFactsByCategory : AppCompatActivity() {
+
     var listCategories = listOf<String>()
     var selectedItem: String = ""
     private lateinit var myAdapterChuckNorris: ChuckNorrisFactAdapter
@@ -23,6 +24,7 @@ class ChuckNorrisFactsByCategory : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chucknorris_fact_by_category)
+
         //Carregando categorias atualizadas no SpinnerAdapter
         listCategories = intent.getStringArrayListExtra("listCategoriesFromDashBoardActivity")
         updateAdapter(listCategories)

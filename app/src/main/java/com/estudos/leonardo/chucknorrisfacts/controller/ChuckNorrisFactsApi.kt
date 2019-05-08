@@ -17,9 +17,8 @@ class ChuckNorrisFactsApi {
 
     private val service: ChuckNorrisFactsApiDef
 
-
+    //inicialização do Retrofit
     init {
-
         val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
 
@@ -35,12 +34,11 @@ class ChuckNorrisFactsApi {
             .client(httpClient.build())
             .build()
 
+        //definição do objeto da interface para conduzir pesquisa dos dados solicitados.
         service = retrofit.create<ChuckNorrisFactsApiDef>(ChuckNorrisFactsApiDef::class.java)
-
-
     }
 
-    //retornar um fato aleatório no formato da classe de negocio
+    //retorna um fato aleatório no formato da classe de negocio
     fun requestFact(): Observable<ChuckNorrisFacts> {
         return service.getRandomChuckNorrisFact()/*FactFromCategory("science")*/
             .map { factWeb ->
@@ -60,6 +58,7 @@ class ChuckNorrisFactsApi {
             }
     }
 
+    //retorna um fato de acordo com a categoria fornecida
     fun requestFactByCategory(requestCategoty: String): Observable<ChuckNorrisFacts> {
         return service.getFactByCategory(requestCategoty)
             .map { factWeb ->
@@ -77,6 +76,7 @@ class ChuckNorrisFactsApi {
             }
     }
 
+    //retorna uma lista das categorias
     fun requestCategories(): Observable<Categories> {
         return service.getCategories()
             .map { categoriesWeb ->
@@ -84,6 +84,7 @@ class ChuckNorrisFactsApi {
             }
     }
 
+    //retorna uma lista de fatos de acordo com a palavra fornecida.
     fun requestFactByWord(query: String): Observable<ChuckNorrisFacts>? {
         return service.getFactByWord(query)
             .flatMap { factResult ->

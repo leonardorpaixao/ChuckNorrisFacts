@@ -15,6 +15,7 @@ class ChuckNorrisFactHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
 
     fun bindView(chuckNorrisFact: ChuckNorrisFacts, context: Context) {
 
+        //define o tamanho do texto inflado de acordo com o número de char do fato.
         itemView.textViewFact.textSize = textSizeDefiner(chuckNorrisFact.fact)
 
         val fact: TextView = itemView.textViewFact
@@ -23,17 +24,13 @@ class ChuckNorrisFactHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
         fact.text = chuckNorrisFact.fact
         category.text = chuckNorrisFact.category!![0]
 
+        //Compartilha fato de Chuck Norris
         buttonShare.setOnClickListener {
             val myIntent = Intent(Intent.ACTION_SEND)
             myIntent.setType("text/palin")
             myIntent.putExtra(Intent.EXTRA_SUBJECT, "ChuckNorrisFacts APP")
-
             val shareText = chuckNorrisFact.fact
-
             val strShareMessage = "\nChuck Norris Fact: \n\n $shareText"
-            //val screenshotUri = Uri.parse("android.resource://com.estudos.leonardo.chucknorrisfacts/drawable/captura_de_tela.png")
-            //myIntent.type = "image/png"
-            //myIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri)
             myIntent.putExtra(Intent.EXTRA_TEXT, strShareMessage)
 
             ContextCompat.startActivity(
@@ -45,7 +42,7 @@ class ChuckNorrisFactHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
         }
 
     }
-
+    //retorna um float de acordo com o tamanho da string passada.
     private fun textSizeDefiner(fact: String): Float {
         return if (fact.length < 80) {
             24.0F

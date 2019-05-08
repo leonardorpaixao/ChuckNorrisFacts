@@ -29,8 +29,14 @@ class ChuckNorrisFactAdapter(
         holderChuckNorris.bindView(fact, context)
     }
 
+    //Adiciona um novo item a RecyclerView, e à atualiza.
     fun updateDataSet(fact: ChuckNorrisFacts) {
         this.facts.add(fact)
+        notifyDataSetChanged()
+    }
+    //Zera a lista do adapter e atualiza a Recycler View
+    fun resetList(){
+        facts = mutableListOf<ChuckNorrisFacts>()
         notifyDataSetChanged()
     }
 
