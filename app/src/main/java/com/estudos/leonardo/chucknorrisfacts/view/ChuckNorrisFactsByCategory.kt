@@ -26,7 +26,7 @@ class ChuckNorrisFactsByCategory : AppCompatActivity() {
         setContentView(R.layout.activity_chucknorris_fact_by_category)
 
         //Carregando categorias atualizadas no SpinnerAdapter
-        listCategories = intent.getStringArrayListExtra("listCategoriesFromDashBoardActivity")
+        listCategories = intent.getStringArrayListExtra("listCategoriesFromDashBoardActivity") as List<String>
         updateAdapter(listCategories)
 
         //Definindo recyclerView adapter
