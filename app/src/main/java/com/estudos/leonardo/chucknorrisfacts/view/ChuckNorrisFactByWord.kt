@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager
 import com.estudos.leonardo.chucknorrisfacts.R
 import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactAdapter
 import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactsApi
-import kotlinx.android.synthetic.main.activity_chucknorris_fact_by_category.*
 import kotlinx.android.synthetic.main.activity_chucknorris_fact_by_word.*
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -27,47 +26,43 @@ class ChuckNorrisFactByWord : AppCompatActivity() {
 
         buttonSearchByWord.setOnClickListener() {
             if (editTextSearch.text.toString() == "") {
-                textViewError.text = getString(R.string.msgEmptySearch)
-
-            } else {
-                textViewError.text = ""
                 Snackbar.make(
-                    factByWordConstraintLayout, "System: Please, wait a moment",
+                    recyclerViewfFactByWord, "Error: Enter a word to continue.",
                     Snackbar.LENGTH_LONG
                 ).show()
+
+            } else
                 loadFacts(editTextSearch.text.toString())
-            }
         }
-
     }
 
 
-    private fun loadFacts(selectedItem: String) {
-        myChuckNorrisFactAdapter.resetList()
+private fun loadFacts(selectedItem: String) {
+    myChuckNorrisFactAdapter.resetList()
 
-        val api = ChuckNorrisFactsApi()
-        api.requestFactByWord(selectedItem.toLowerCase())!!
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ fact ->
-                myChuckNorrisFactAdapter.updateDataSet(fact)
+    val api = ChuckNorrisFactsApi()
+    api.requestFactByWord(selectedItem.toLowerCase())!!
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe({ fact ->
+            myChuckNorrisFactAdapter.updateDataSet(fact)
 
-            }, { e ->
-                e.printStackTrace()
+        }, { e ->
+            e.printStackTrace()
+            Snackbar.make(
+                factByWordConstraintLayout, "Erro: Houve um erro na requisição. Tente novamente.",
+                Snackbar.LENGTH_LONG
+            ).show()
+
+        }, {
+
+            if (myChuckNorrisFactAdapter.itemCount == 0) {
                 Snackbar.make(
-                    myConstraintLayout, "Erro: Houve um erro na requisição. Tente novamente.",
+                    factByWordConstraintLayout, "No results found. Try another word",
                     Snackbar.LENGTH_LONG
                 ).show()
-
-            }, {
-
-                if (myChuckNorrisFactAdapter.itemCount == 0) {
-                    Snackbar.make(
-                        factByWordConstraintLayout, "No results found. Try another word",
-                        Snackbar.LENGTH_LONG
-                    ).show()
-                }
-            })
-    }
+            }
+        })
+}
 }
 
