@@ -19,7 +19,7 @@
                   android:windowSoftInputMode="stateVisible|adjustResize"
         >
         </activity>
-        <activity android:name=".view.DashBoardActivity">
+        <activity android:name=".view.dashboad.DashBoardActivity">
         </activity>
         <activity android:name=".view.ChuckNorrisFactsByCategory"
                   android:windowSoftInputMode="stateVisible|adjustResize">
@@ -28,7 +28,6 @@
         <activity android:name=".view.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>

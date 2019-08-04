@@ -1,9 +1,9 @@
 package com.estudos.leonardo.chucknorrisfacts.view
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.estudos.leonardo.chucknorrisfacts.R
 import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactAdapter
 import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactsApi
@@ -26,9 +26,9 @@ class ChuckNorrisFactByWord : AppCompatActivity() {
 
         buttonSearchByWord.setOnClickListener() {
             if (editTextSearch.text.toString() == "") {
-                Snackbar.make(
-                    recyclerViewfFactByWord, "Error: Enter a word to continue.",
-                    Snackbar.LENGTH_LONG
+                Toast.makeText(
+                    this, "Error: Enter a word to continue.",
+                    Toast.LENGTH_LONG
                 ).show()
 
             } else
@@ -49,17 +49,17 @@ private fun loadFacts(selectedItem: String) {
 
         }, { e ->
             e.printStackTrace()
-            Snackbar.make(
-                factByWordConstraintLayout, "Erro: Houve um erro na requisição. Tente novamente.",
-                Snackbar.LENGTH_LONG
+            Toast.makeText(
+                this, "Erro: Houve um erro na requisição. Tente novamente.",
+                Toast.LENGTH_LONG
             ).show()
 
         }, {
 
             if (myChuckNorrisFactAdapter.itemCount == 0) {
-                Snackbar.make(
-                    factByWordConstraintLayout, "No results found. Try another word",
-                    Snackbar.LENGTH_LONG
+                Toast.makeText(
+                    this, "No results found. Try another word",
+                    Toast.LENGTH_LONG
                 ).show()
             }
         })

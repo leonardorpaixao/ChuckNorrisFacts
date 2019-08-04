@@ -1,9 +1,9 @@
 package com.estudos.leonardo.chucknorrisfacts.controller
 
 
-import com.estudos.leonardo.chucknorrisfacts.model.Categories
-import com.estudos.leonardo.chucknorrisfacts.model.ChuckNorrisFacts
-import com.estudos.leonardo.chucknorrisfacts.model.ChuckNorrisFactsApiDef
+import com.estudos.leonardo.chucknorrisfacts.domain.model.Categories
+import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFacts
+import com.estudos.leonardo.chucknorrisfacts.domain.service.ChuckNorrisFactsApiDef
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -40,16 +40,16 @@ class ChuckNorrisFactsApi {
 
     //retorna um fato aleatório no formato da classe de negocio
     fun requestFact(): Observable<ChuckNorrisFacts> {
-        return service.getRandomChuckNorrisFact()/*FactFromCategory("science")*/
+        return service.getRandomChuckNorrisFact()
             .map { factWeb ->
-                if (factWeb.category == null) {
+                if (factWeb.categories == emptyList<String>()) {
                     ChuckNorrisFacts(
                         listOf("  UNCATEGORIZED  "), factWeb.icon_url,
                         factWeb.id, factWeb.url, factWeb.curiosity
                     )
                 } else {
                     ChuckNorrisFacts(
-                        factWeb.category, factWeb.icon_url,
+                        factWeb.categories, factWeb.icon_url,
                         factWeb.id, factWeb.url, factWeb.curiosity
                     )
                 }
@@ -62,14 +62,14 @@ class ChuckNorrisFactsApi {
     fun requestFactByCategory(requestCategoty: String): Observable<ChuckNorrisFacts> {
         return service.getFactByCategory(requestCategoty)
             .map { factWeb ->
-                if (factWeb.category == null) {
+                if (factWeb.categories == emptyList<String>()) {
                     ChuckNorrisFacts(
                         listOf("  UNCATEGORIZED  "), factWeb.icon_url,
                         factWeb.id, factWeb.url, factWeb.curiosity
                     )
                 } else {
                     ChuckNorrisFacts(
-                        factWeb.category, factWeb.icon_url,
+                        factWeb.categories, factWeb.icon_url,
                         factWeb.id, factWeb.url, factWeb.curiosity
                     )
                 }
@@ -90,14 +90,14 @@ class ChuckNorrisFactsApi {
             .flatMap { factResult ->
                 Observable.from(factResult.result)
                     .map { factWeb ->
-                        if (factWeb.category == null) {
+                        if (factWeb.categories == null) {
                             ChuckNorrisFacts(
                                 listOf("  UNCATEGORIZED  "), factWeb.icon_url,
                                 factWeb.id, factWeb.url, factWeb.curiosity
                             )
                         } else {
                             ChuckNorrisFacts(
-                                factWeb.category, factWeb.icon_url,
+                                factWeb.categories, factWeb.icon_url,
                                 factWeb.id, factWeb.url, factWeb.curiosity
                             )
                         }
