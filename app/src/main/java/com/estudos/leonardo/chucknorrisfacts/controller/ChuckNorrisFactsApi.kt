@@ -42,14 +42,14 @@ class ChuckNorrisFactsApi {
     fun requestFact(): Observable<ChuckNorrisFacts> {
         return service.getRandomChuckNorrisFact()
             .map { factWeb ->
-                if (factWeb.category == null) {
+                if (factWeb.categories == emptyList<String>()) {
                     ChuckNorrisFacts(
                         listOf("  UNCATEGORIZED  "), factWeb.icon_url,
                         factWeb.id, factWeb.url, factWeb.curiosity
                     )
                 } else {
                     ChuckNorrisFacts(
-                        factWeb.category, factWeb.icon_url,
+                        factWeb.categories, factWeb.icon_url,
                         factWeb.id, factWeb.url, factWeb.curiosity
                     )
                 }
@@ -62,14 +62,14 @@ class ChuckNorrisFactsApi {
     fun requestFactByCategory(requestCategoty: String): Observable<ChuckNorrisFacts> {
         return service.getFactByCategory(requestCategoty)
             .map { factWeb ->
-                if (factWeb.category == null) {
+                if (factWeb.categories == emptyList<String>()) {
                     ChuckNorrisFacts(
                         listOf("  UNCATEGORIZED  "), factWeb.icon_url,
                         factWeb.id, factWeb.url, factWeb.curiosity
                     )
                 } else {
                     ChuckNorrisFacts(
-                        factWeb.category, factWeb.icon_url,
+                        factWeb.categories, factWeb.icon_url,
                         factWeb.id, factWeb.url, factWeb.curiosity
                     )
                 }
@@ -90,14 +90,14 @@ class ChuckNorrisFactsApi {
             .flatMap { factResult ->
                 Observable.from(factResult.result)
                     .map { factWeb ->
-                        if (factWeb.category == null) {
+                        if (factWeb.categories == null) {
                             ChuckNorrisFacts(
                                 listOf("  UNCATEGORIZED  "), factWeb.icon_url,
                                 factWeb.id, factWeb.url, factWeb.curiosity
                             )
                         } else {
                             ChuckNorrisFacts(
-                                factWeb.category, factWeb.icon_url,
+                                factWeb.categories, factWeb.icon_url,
                                 factWeb.id, factWeb.url, factWeb.curiosity
                             )
                         }
