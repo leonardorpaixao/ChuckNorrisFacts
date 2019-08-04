@@ -1,4 +1,4 @@
-package com.estudos.leonardo.chucknorrisfacts.model
+package com.estudos.leonardo.chucknorrisfacts.domain.model
 
 import com.google.gson.annotations.SerializedName
 

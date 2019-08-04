@@ -3,11 +3,11 @@ package com.estudos.leonardo.chucknorrisfacts.controller
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
-import com.estudos.leonardo.chucknorrisfacts.model.ChuckNorrisFacts
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
+import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFacts
 import kotlinx.android.synthetic.main.fact_model.view.*
 
 class ChuckNorrisFactHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

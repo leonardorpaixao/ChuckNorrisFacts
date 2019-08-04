@@ -1,12 +1,12 @@
 package com.estudos.leonardo.chucknorrisfacts.view
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.estudos.leonardo.chucknorrisfacts.R
 import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactAdapter
 import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactsApi
@@ -40,9 +40,9 @@ class ChuckNorrisFactsByCategory : AppCompatActivity() {
         mySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                Snackbar.make(
-                    myConstraintLayout, "Por favor escolha uma opção",
-                    Snackbar.LENGTH_LONG
+                Toast.makeText(
+                    applicationContext, "Por favor escolha uma opção",
+                    Toast.LENGTH_LONG
                 ).show()
             }
 
@@ -67,9 +67,9 @@ class ChuckNorrisFactsByCategory : AppCompatActivity() {
 
             }, { e ->
                 e.printStackTrace()
-                Snackbar.make(
-                    myConstraintLayout, "Erro: Houve um erro na requisição. Tente novamente.",
-                    Snackbar.LENGTH_LONG
+                Toast.makeText(
+                    this, "Erro: Houve um erro na requisição. Tente novamente.",
+                    Toast.LENGTH_LONG
                 ).show()
 
             })

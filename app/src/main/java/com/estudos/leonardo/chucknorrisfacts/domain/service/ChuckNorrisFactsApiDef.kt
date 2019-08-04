@@ -1,5 +1,7 @@
-package com.estudos.leonardo.chucknorrisfacts.model
+package com.estudos.leonardo.chucknorrisfacts.domain.service
 
+import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFactsResult
+import com.estudos.leonardo.chucknorrisfacts.domain.model.ChucknorrisFactsWeb
 import retrofit2.http.GET
 import retrofit2.http.Query
 import rx.Observable

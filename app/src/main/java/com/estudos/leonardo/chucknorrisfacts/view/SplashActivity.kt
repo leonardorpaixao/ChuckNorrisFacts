@@ -1,10 +1,11 @@
 package com.estudos.leonardo.chucknorrisfacts.view
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
 import com.estudos.leonardo.chucknorrisfacts.R
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import com.estudos.leonardo.chucknorrisfacts.view.dashboad.DashBoardActivity
 
 
 class SplashActivity : AppCompatActivity() {

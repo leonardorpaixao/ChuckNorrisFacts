@@ -2,10 +2,10 @@ package com.estudos.leonardo.chucknorrisfacts.controller
 
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.estudos.leonardo.chucknorrisfacts.model.ChuckNorrisFacts
+import androidx.recyclerview.widget.RecyclerView
+import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFacts
 import com.estudos.leonardo.chucknorrisfacts.R
 
 

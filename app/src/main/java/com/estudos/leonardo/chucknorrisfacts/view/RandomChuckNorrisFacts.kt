@@ -1,13 +1,13 @@
 package com.estudos.leonardo.chucknorrisfacts.view
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.estudos.leonardo.chucknorrisfacts.R
 import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactsApi
 import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactAdapter
-import com.estudos.leonardo.chucknorrisfacts.model.ChuckNorrisFacts
+import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFacts
 import kotlinx.android.synthetic.main.activity_random_chucknorris_fact.*
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -61,9 +61,9 @@ class RandomChuckNorrisFacts : AppCompatActivity() {
 
             }, { e ->
                 e.printStackTrace()
-                Snackbar.make(
-                    randomJokeConstraintLayout, "Erro: Sua oração foi fraca, tente novamente",
-                    Snackbar.LENGTH_LONG
+                Toast.makeText(
+                    this, "Erro: Sua oração foi fraca, tente novamente",
+                    Toast.LENGTH_LONG
                 ).show()
 
             })

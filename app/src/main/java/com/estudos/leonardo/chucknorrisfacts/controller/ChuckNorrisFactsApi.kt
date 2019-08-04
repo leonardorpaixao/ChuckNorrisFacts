@@ -1,9 +1,9 @@
 package com.estudos.leonardo.chucknorrisfacts.controller
 
 
-import com.estudos.leonardo.chucknorrisfacts.model.Categories
-import com.estudos.leonardo.chucknorrisfacts.model.ChuckNorrisFacts
-import com.estudos.leonardo.chucknorrisfacts.model.ChuckNorrisFactsApiDef
+import com.estudos.leonardo.chucknorrisfacts.domain.model.Categories
+import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFacts
+import com.estudos.leonardo.chucknorrisfacts.domain.service.ChuckNorrisFactsApiDef
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -40,7 +40,7 @@ class ChuckNorrisFactsApi {
 
     //retorna um fato aleatório no formato da classe de negocio
     fun requestFact(): Observable<ChuckNorrisFacts> {
-        return service.getRandomChuckNorrisFact()/*FactFromCategory("science")*/
+        return service.getRandomChuckNorrisFact()
             .map { factWeb ->
                 if (factWeb.category == null) {
                     ChuckNorrisFacts(
