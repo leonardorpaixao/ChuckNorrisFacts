@@ -24,24 +24,20 @@ object Dependencies {
     const val gradle = "com.android.tools.build:gradle:${Versions.gradleVersion}"
     const val fabric = "io.fabric.tools:gradle:${Versions.fabric}"
     const val gms = "com.google.gms:google-services:${Versions.gms}"
+    const val kotlinPlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
 
     const val gson = "com.google.code.gson:gson:${Versions.gsonVersion}"
     const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.androidX}"
     const val cardView = "androidx.cardview:cardview:${Versions.androidX}"
 
-
     const val lifeCycle = "androidx.lifecycle:lifecycle-extensions:${Versions.lifeCycle}"
     const val rxJava = "io.reactivex:rxjava:${Versions.rxJava}"
     const val rxAndroid = "io.reactivex:rxandroid:${Versions.rxAndroid}"
-    const val kotlinPlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
-
 
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retroFit}"
     const val retrofitAdapter = "com.squareup.retrofit2:adapter-rxjava:${Versions.retroFit}"
     const val retrofitConverter = "com.squareup.retrofit2:converter-gson:${Versions.retroFit}"
     const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
-
-
 }
 
 object VersionTest {
