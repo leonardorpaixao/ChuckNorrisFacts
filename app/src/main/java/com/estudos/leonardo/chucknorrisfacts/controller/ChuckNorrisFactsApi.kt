@@ -90,7 +90,7 @@ class ChuckNorrisFactsApi {
             .flatMap { factResult ->
                 Observable.from(factResult.result)
                     .map { factWeb ->
-                        if (factWeb.categories == null) {
+                        if (factWeb.categories == emptyList<String>() ) {
                             ChuckNorrisFacts(
                                 listOf("  UNCATEGORIZED  "), factWeb.icon_url,
                                 factWeb.id, factWeb.url, factWeb.curiosity
