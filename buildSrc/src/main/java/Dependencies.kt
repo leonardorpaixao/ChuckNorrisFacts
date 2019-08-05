@@ -17,7 +17,6 @@ object Versions {
 }
 
 object Dependencies {
-    const val fileTree = "fileTree(dir: 'libs', include: ['*.jar'])"
     const val kotlinLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     const val appCompatX = "androidx.appcompat:appcompat:${Versions.appCompatXVersion}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraint}"
