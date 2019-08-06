@@ -15,13 +15,13 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.ChuckNorrisFactByWord"
+        <activity android:name=".view.FactsByWordActivity"
                   android:windowSoftInputMode="stateVisible|adjustResize"
         >
         </activity>
         <activity android:name=".view.dashboad.DashBoardActivity">
         </activity>
-        <activity android:name=".view.ChuckNorrisFactsByCategory"
+        <activity android:name=".view.FactsByCategoryActivity"
                   android:windowSoftInputMode="stateVisible|adjustResize">
 
         </activity>
@@ -31,7 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".view.RandomChuckNorrisFacts">
+        <activity android:name=".view.RandomFactsActivity">
         </activity>
         <activity android:name=".view.FirstAccessActivity">
         </activity>

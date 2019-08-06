@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_chucknorris_fact_by_category.*
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
-class ChuckNorrisFactsByCategory : AppCompatActivity() {
+class FactsByCategoryActivity : AppCompatActivity() {
 
     var listCategories = listOf<String>()
     var selectedItem: String = ""
