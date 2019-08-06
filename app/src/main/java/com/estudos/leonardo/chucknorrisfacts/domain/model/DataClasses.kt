@@ -1,6 +1,6 @@
 package com.estudos.leonardo.chucknorrisfacts.domain.model
 
-data class ChuckNorrisFacts(
+data class ChuckNorrisFact(
     val category: List<String>?,
     val icon_url: String,
     val id: String,
@@ -9,6 +9,7 @@ data class ChuckNorrisFacts(
 )
 
 data class Categories( val categories : List<String>)
+
 
 
 

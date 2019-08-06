@@ -18,10 +18,10 @@ class RandomFactsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_random_chucknorris_fact)
         setupRecyclerView()
         listenButtonRequestFact()
-        updateFact()
+        updateAdapter()
     }
 
-    private fun updateFact() {
+    private fun updateAdapter() {
         viewModel.listenFact().observe(this, Observer {
             mAdapterChuckNorris.updateDataSet(it)
         })

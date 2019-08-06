@@ -7,13 +7,13 @@ import android.view.View
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFacts
+import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFact
 import kotlinx.android.synthetic.main.fact_model.view.*
 
 class ChuckNorrisFactHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 
-    fun bindView(chuckNorrisFact: ChuckNorrisFacts, context: Context) {
+    fun bindView(chuckNorrisFact: ChuckNorrisFact, context: Context) {
 
         //define o tamanho do texto inflado de acordo com o número de char do fato.
         itemView.textViewFact.textSize = textSizeDefiner(chuckNorrisFact.fact)
@@ -28,7 +28,7 @@ class ChuckNorrisFactHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
         buttonShare.setOnClickListener {
             val myIntent = Intent(Intent.ACTION_SEND)
             myIntent.setType("text/palin")
-            myIntent.putExtra(Intent.EXTRA_SUBJECT, "ChuckNorrisFacts APP")
+            myIntent.putExtra(Intent.EXTRA_SUBJECT, "ChuckNorrisFact APP")
             val shareText = chuckNorrisFact.fact
             val strShareMessage = "\nChuck Norris Fact: \n\n $shareText"
             myIntent.putExtra(Intent.EXTRA_TEXT, strShareMessage)

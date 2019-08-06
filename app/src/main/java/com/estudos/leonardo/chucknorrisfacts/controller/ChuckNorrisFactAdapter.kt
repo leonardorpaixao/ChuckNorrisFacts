@@ -5,7 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFacts
+import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFact
 import com.estudos.leonardo.chucknorrisfacts.R
 
 
@@ -13,7 +13,7 @@ class ChuckNorrisFactAdapter(
     private val context: Context
 ) : RecyclerView.Adapter<ChuckNorrisFactHolder>() {
 
-    private var facts: MutableList<ChuckNorrisFacts> = mutableListOf<ChuckNorrisFacts>()
+    private var facts: MutableList<ChuckNorrisFact> = mutableListOf<ChuckNorrisFact>()
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): ChuckNorrisFactHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.fact_model, parent, false)
@@ -30,13 +30,13 @@ class ChuckNorrisFactAdapter(
     }
 
     //Adiciona um novo item a RecyclerView, e à atualiza.
-    fun updateDataSet(fact: ChuckNorrisFacts) {
+    fun updateDataSet(fact: ChuckNorrisFact) {
         this.facts.add(fact)
         notifyDataSetChanged()
     }
     //Zera a lista do adapter e atualiza a Recycler View
     fun resetList(){
-        facts = mutableListOf<ChuckNorrisFacts>()
+        facts = mutableListOf<ChuckNorrisFact>()
         notifyDataSetChanged()
     }
 

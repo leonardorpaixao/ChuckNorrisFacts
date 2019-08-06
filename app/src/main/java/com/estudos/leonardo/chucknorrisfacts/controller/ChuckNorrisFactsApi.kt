@@ -2,7 +2,8 @@ package com.estudos.leonardo.chucknorrisfacts.controller
 
 
 import com.estudos.leonardo.chucknorrisfacts.domain.model.Categories
-import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFacts
+import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFact
+import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFactsResult
 import com.estudos.leonardo.chucknorrisfacts.domain.service.ChuckNorrisFactsApiDef
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -39,16 +40,16 @@ class ChuckNorrisFactsApi {
     }
 
     //retorna um fato aleatório no formato da classe de negocio
-    fun requestFact(): Observable<ChuckNorrisFacts> {
+    fun requestFact(): Observable<ChuckNorrisFact> {
         return service.getRandomChuckNorrisFact()
             .map { factWeb ->
                 if (factWeb.categories == emptyList<String>()) {
-                    ChuckNorrisFacts(
+                    ChuckNorrisFact(
                         listOf("  UNCATEGORIZED  "), factWeb.icon_url,
                         factWeb.id, factWeb.url, factWeb.curiosity
                     )
                 } else {
-                    ChuckNorrisFacts(
+                    ChuckNorrisFact(
                         factWeb.categories, factWeb.icon_url,
                         factWeb.id, factWeb.url, factWeb.curiosity
                     )
@@ -59,16 +60,16 @@ class ChuckNorrisFactsApi {
     }
 
     //retorna um fato de acordo com a categoria fornecida
-    fun requestFactByCategory(requestCategoty: String): Observable<ChuckNorrisFacts> {
+    fun requestFactByCategory(requestCategoty: String): Observable<ChuckNorrisFact> {
         return service.getFactByCategory(requestCategoty)
             .map { factWeb ->
                 if (factWeb.categories == emptyList<String>()) {
-                    ChuckNorrisFacts(
+                    ChuckNorrisFact(
                         listOf("  UNCATEGORIZED  "), factWeb.icon_url,
                         factWeb.id, factWeb.url, factWeb.curiosity
                     )
                 } else {
-                    ChuckNorrisFacts(
+                    ChuckNorrisFact(
                         factWeb.categories, factWeb.icon_url,
                         factWeb.id, factWeb.url, factWeb.curiosity
                     )
@@ -85,24 +86,28 @@ class ChuckNorrisFactsApi {
     }
 
     //retorna uma lista de fatos de acordo com a palavra fornecida.
-    fun requestFactByWord(query: String): Observable<ChuckNorrisFacts>? {
+    fun requestFactByWord(query: String): Observable<ChuckNorrisFactsResult>? {
         return service.getFactByWord(query)
-            .flatMap { factResult ->
-                Observable.from(factResult.result)
-                    .map { factWeb ->
-                        if (factWeb.categories == emptyList<String>() ) {
-                            ChuckNorrisFacts(
-                                listOf("  UNCATEGORIZED  "), factWeb.icon_url,
-                                factWeb.id, factWeb.url, factWeb.curiosity
-                            )
-                        } else {
-                            ChuckNorrisFacts(
-                                factWeb.categories, factWeb.icon_url,
-                                factWeb.id, factWeb.url, factWeb.curiosity
-                            )
+
+            /*.flatMap { factResult ->
+                if (factResult.total == 0) {
+                    null
+                } else {
+                    Observable.from(factResult.result)
+                        .map { factWeb ->
+                            when (factWeb.categories == emptyList<String>()) {
+                                true -> ChuckNorrisFact(
+                                    listOf("  UNCATEGORIZED  "), factWeb.icon_url,
+                                    factWeb.id, factWeb.url, factWeb.curiosity
+                                )
+                                false -> ChuckNorrisFact(
+                                    factWeb.categories, factWeb.icon_url,
+                                    factWeb.id, factWeb.url, factWeb.curiosity
+                                )
+                            }
                         }
-                    }
-            }
+                }
+            }*/
 
     }
 }
