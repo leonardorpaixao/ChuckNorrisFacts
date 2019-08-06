@@ -23,7 +23,6 @@ object Dependencies {
 
     const val gradle = "com.android.tools.build:gradle:${Versions.gradleVersion}"
     const val fabric = "io.fabric.tools:gradle:${Versions.fabric}"
-    const val gms = "com.google.gms:google-services:${Versions.gms}"
     const val kotlinPlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
 
     const val gson = "com.google.code.gson:gson:${Versions.gsonVersion}"
