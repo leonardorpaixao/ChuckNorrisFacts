@@ -54,7 +54,7 @@ class RandomFactsActivity : AppCompatActivity() {
     private fun showLoadingView() {
         Toast.makeText(
             applicationContext, "Estamos captando sua oração",
-            Toast.LENGTH_LONG
+            Toast.LENGTH_SHORT
         ).show()
     }
 

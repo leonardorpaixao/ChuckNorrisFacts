@@ -17,6 +17,7 @@ class RandomFactsViewModel(val context: Context) : ViewModel() {
     fun listenFact(): LiveData<ScreenState<ChuckNorrisFacts>> = randomFact
 
     fun getRandomFact(){
+        randomFact.value = ScreenState.Loading
         api.requestFact()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
