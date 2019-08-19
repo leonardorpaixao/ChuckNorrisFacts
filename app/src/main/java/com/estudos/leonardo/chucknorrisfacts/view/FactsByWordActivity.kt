@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_chucknorris_fact_by_word.*
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
-class ChuckNorrisFactByWord : AppCompatActivity() {
+class FactsByWordActivity : AppCompatActivity() {
     private lateinit var myChuckNorrisFactAdapter: ChuckNorrisFactAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {

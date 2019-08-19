@@ -8,9 +8,9 @@ import androidx.lifecycle.Observer
 import com.estudos.leonardo.chucknorrisfacts.R
 import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactsApi
 import com.estudos.leonardo.chucknorrisfacts.domain.model.ScreenSelected.*
-import com.estudos.leonardo.chucknorrisfacts.view.ChuckNorrisFactByWord
-import com.estudos.leonardo.chucknorrisfacts.view.ChuckNorrisFactsByCategory
-import com.estudos.leonardo.chucknorrisfacts.view.RandomChuckNorrisFacts
+import com.estudos.leonardo.chucknorrisfacts.view.FactsByCategoryActivity
+import com.estudos.leonardo.chucknorrisfacts.view.FactsByWordActivity
+import com.estudos.leonardo.chucknorrisfacts.view.RandomFactsActivity
 import kotlinx.android.synthetic.main.activity_dash_board.*
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -34,15 +34,15 @@ class DashBoardActivity : AppCompatActivity() {
         viewModel.listenScreenSelected().observe(this, Observer {screenSelected ->
             when (screenSelected) {
                 FactByRandom -> {
-                    startActivity(Intent(applicationContext, RandomChuckNorrisFacts::class.java))
+                    startActivity(Intent(applicationContext, RandomFactsActivity::class.java))
                 }
                 FactByCategory -> {
-                    intent = Intent(applicationContext, ChuckNorrisFactsByCategory::class.java)
+                    intent = Intent(applicationContext, FactsByCategoryActivity::class.java)
                     intent.putExtra("listCategoriesFromDashBoardActivity", ArrayList(listCategories))
                     startActivity(Intent(intent))
                 }
                 FactByWord -> {
-                    startActivity(Intent(applicationContext, ChuckNorrisFactByWord::class.java))
+                    startActivity(Intent(applicationContext, FactsByWordActivity::class.java))
                 }
             }
         })

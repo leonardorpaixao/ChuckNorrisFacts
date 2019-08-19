@@ -36,6 +36,7 @@ class ChuckNorrisFactsApi {
 
         //definição do objeto da interface para conduzir pesquisa dos dados solicitados.
         service = retrofit.create<ChuckNorrisFactsApiDef>(ChuckNorrisFactsApiDef::class.java)
+
     }
 
     //retorna um fato aleatório no formato da classe de negocio
