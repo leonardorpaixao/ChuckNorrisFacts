@@ -10,7 +10,7 @@ import com.estudos.leonardo.chucknorrisfacts.domain.model.ScreenState
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
-class RandomFactsViewModel(val context: Context) : ViewModel() {
+class RandomFactsViewModel : ViewModel() {
     val api: ChuckNorrisFactsApi by lazy { ChuckNorrisFactsApi() }
     private val randomFact: MutableLiveData<ScreenState<ChuckNorrisFacts>> = MutableLiveData()
 
