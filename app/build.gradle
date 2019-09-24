@@ -69,6 +69,10 @@ android {
         implementation Dependencies.retrofitAdapter
         implementation Dependencies.retrofitConverter
         implementation Dependencies.okHttpInterceptor
+        implementation Dependencies.kodein
+        implementation Dependencies.kodeinAndroid
+        implementation Dependencies.kodeinConf
+
 
         testImplementation DependenciesTest.jUnit
         androidTestImplementation DependenciesTest.runner

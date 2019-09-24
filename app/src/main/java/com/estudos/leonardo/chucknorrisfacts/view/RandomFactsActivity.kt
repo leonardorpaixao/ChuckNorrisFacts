@@ -10,11 +10,17 @@ import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactAdapter
 import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFacts
 import com.estudos.leonardo.chucknorrisfacts.domain.model.ScreenState
 import kotlinx.android.synthetic.main.activity_random_chucknorris_fact.*
+import org.kodein.di.Kodein
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.closestKodein
+import org.kodein.di.generic.instance
 
-class RandomFactsActivity : AppCompatActivity() {
+class RandomFactsActivity : AppCompatActivity(), KodeinAware {
 
-    private val mAdapterChuckNorris: ChuckNorrisFactAdapter by lazy { ChuckNorrisFactAdapter(applicationContext) }
-    private val viewModel: RandomFactsViewModel by lazy { RandomFactsViewModel(applicationContext) }
+    override val kodein by closestKodein()
+
+    private val mAdapterChuckNorris: ChuckNorrisFactAdapter by instance()
+    private val viewModel: RandomFactsViewModel by instance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

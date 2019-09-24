@@ -13,6 +13,7 @@ object Versions {
     const val okHttp = "3.14.0"
     const val gms = "4.2.0"
     const val fabric = "1.26.1"
+    const val kodeinDI = "6.3.3"
 
 }
 
@@ -37,6 +38,10 @@ object Dependencies {
     const val retrofitAdapter = "com.squareup.retrofit2:adapter-rxjava:${Versions.retroFit}"
     const val retrofitConverter = "com.squareup.retrofit2:converter-gson:${Versions.retroFit}"
     const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
+
+    val kodein = "org.kodein.di:kodein-di-generic-jvm:${Versions.kodeinDI}"
+    val kodeinConf = "org.kodein.di:kodein-di-conf-jvm:${Versions.kodeinDI}"
+    val kodeinAndroid = "org.kodein.di:kodein-di-framework-android-x:${Versions.kodeinDI}"
 }
 
 object VersionTest {
