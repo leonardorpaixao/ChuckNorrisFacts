@@ -16,13 +16,13 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.FactsByWordActivity"
+        <activity android:name=".view.fact_by_word.FactsByWordActivity"
                   android:windowSoftInputMode="stateVisible|adjustResize"
         >
         </activity>
         <activity android:name=".view.dashboad.DashBoardActivity">
         </activity>
-        <activity android:name=".view.FactsByCategoryActivity"
+        <activity android:name=".view.fact_by_category.FactsByCategoryActivity"
                   android:windowSoftInputMode="stateVisible|adjustResize">
 
         </activity>
@@ -32,7 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".view.RandomFactsActivity">
+        <activity android:name=".view.random_fact.RandomFactsActivity">
         </activity>
         <activity android:name=".view.FirstAccessActivity">
         </activity>

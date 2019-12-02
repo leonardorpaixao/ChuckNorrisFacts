@@ -1,4 +1,4 @@
-package com.estudos.leonardo.chucknorrisfacts.view
+package com.estudos.leonardo.chucknorrisfacts.view.fact_by_word
 
 import android.os.Bundle
 import android.widget.Toast
@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.estudos.leonardo.chucknorrisfacts.R
 import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactAdapter
-import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactsApi
+import com.estudos.leonardo.chucknorrisfacts.data.FactsInfraStructure
 import kotlinx.android.synthetic.main.activity_chucknorris_fact_by_word.*
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -40,8 +40,8 @@ class FactsByWordActivity : AppCompatActivity() {
 private fun loadFacts(selectedItem: String) {
     myChuckNorrisFactAdapter.resetList()
 
-    val api = ChuckNorrisFactsApi()
-    api.requestFactByWord(selectedItem.toLowerCase())!!
+    val api = FactsInfraStructure()
+    api.getFactByWord(selectedItem.toLowerCase())!!
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe({ fact ->

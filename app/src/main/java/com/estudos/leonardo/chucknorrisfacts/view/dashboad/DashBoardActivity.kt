@@ -6,11 +6,11 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.estudos.leonardo.chucknorrisfacts.R
-import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactsApi
+import com.estudos.leonardo.chucknorrisfacts.data.FactsInfraStructure
 import com.estudos.leonardo.chucknorrisfacts.domain.model.ScreenSelected.*
-import com.estudos.leonardo.chucknorrisfacts.view.FactsByCategoryActivity
-import com.estudos.leonardo.chucknorrisfacts.view.FactsByWordActivity
-import com.estudos.leonardo.chucknorrisfacts.view.RandomFactsActivity
+import com.estudos.leonardo.chucknorrisfacts.view.fact_by_category.FactsByCategoryActivity
+import com.estudos.leonardo.chucknorrisfacts.view.fact_by_word.FactsByWordActivity
+import com.estudos.leonardo.chucknorrisfacts.view.random_fact.RandomFactsActivity
 import kotlinx.android.synthetic.main.activity_dash_board.*
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -23,7 +23,7 @@ class DashBoardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dash_board)
-        getListOfCategories()
+       // getListOfCategories()
         listenButtons()
         listenToNavigate()
 
@@ -50,9 +50,10 @@ class DashBoardActivity : AppCompatActivity() {
     }
 
     //Atualiza lista de categorias dos fatos.
-    fun getListOfCategories() {
-        val api = ChuckNorrisFactsApi()
-        api.requestCategories()
+    /*fun getListOfCategories(): Int
+    {
+        val api = FactsInfraStructure(instance())
+       return api.categories()
             .subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribe({ categories ->
@@ -66,7 +67,7 @@ class DashBoardActivity : AppCompatActivity() {
             }, {
 
             })
-    }
+    }*/
 
     //Adiciona item a mutableList
     fun updateList(category: String) {

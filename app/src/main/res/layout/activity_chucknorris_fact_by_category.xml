@@ -1,63 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/myConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.FactsByCategoryActivity" android:background="@android:color/transparent"
-        android:id="@+id/myConstraintLayout">
+        android:background="@android:color/transparent"
+        tools:context=".view.fact_by_category.FactsByCategoryActivity">
 
-    <Spinner
-        android:id="@+id/mySpinner"
-        android:layout_width="0dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:clickable="true"
-        android:contextClickable="true"
-        android:textAllCaps="true"
-        android:touchscreenBlocksFocus="false"
-        app:layout_constraintEnd_toStartOf="@+id/buttonRequest"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-            android:text="@string/category"
-            android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:id="@+id/textView3" android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp" android:gravity="center"
-            android:layout_marginStart="8dp"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/factByCategoryContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/buttonRequest"
-        android:layout_width="wrap_content"
-        android:layout_height="56dp"
-        android:layout_marginEnd="8dp"
-        android:backgroundTint="@android:color/transparent"
-        android:contentDescription="@string/button_request_fact"
-        android:drawableBottom="@android:drawable/ic_input_add"
-        android:elevation="1dp"
-        android:src="@drawable/outline_search_black_18dp"
-        android:text="@string/button_request_fact"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Spinner
+                android:id="@+id/mySpinner"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:contextClickable="true"
+                android:textAllCaps="true"
+                android:touchscreenBlocksFocus="false"
+                app:layout_constraintEnd_toStartOf="@+id/buttonRequest"
+                app:layout_constraintStart_toEndOf="@+id/textView3"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewfFactByCategory"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="76dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mySpinner"
-        app:layout_constraintVertical_bias="1.0" />
+        <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/category"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageButton
+                android:id="@+id/buttonRequest"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@string/button_request_fact"
+                android:drawableBottom="@android:drawable/ic_input_add"
+                android:elevation="1dp"
+                android:src="@drawable/outline_search_black_18dp"
+                android:text="@string/button_request_fact"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewfFactByCategory"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="76dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mySpinner"
+                app:layout_constraintVertical_bias="1.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+            android:id="@+id/factByCategorieLoadingState"
+            layout="@layout/view_loading_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
+
+</RelativeLayout>

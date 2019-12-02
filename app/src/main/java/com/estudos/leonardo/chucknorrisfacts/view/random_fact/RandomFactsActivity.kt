@@ -1,4 +1,4 @@
-package com.estudos.leonardo.chucknorrisfacts.view
+package com.estudos.leonardo.chucknorrisfacts.view.random_fact
 
 import android.os.Bundle
 import android.widget.Toast
@@ -9,8 +9,8 @@ import com.estudos.leonardo.chucknorrisfacts.R
 import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactAdapter
 import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFacts
 import com.estudos.leonardo.chucknorrisfacts.domain.model.ScreenState
+import com.estudos.leonardo.chucknorrisfacts.domain.model.ScreenState.*
 import kotlinx.android.synthetic.main.activity_random_chucknorris_fact.*
-import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
@@ -19,8 +19,8 @@ class RandomFactsActivity : AppCompatActivity(), KodeinAware {
 
     override val kodein by closestKodein()
 
-    private val mAdapterChuckNorris: ChuckNorrisFactAdapter by instance()
-    private val viewModel: RandomFactsViewModel by instance()
+    private val mAdapterChuckNorris by instance<ChuckNorrisFactAdapter>()
+    private val viewModel by instance<RandomFactsViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,22 +32,14 @@ class RandomFactsActivity : AppCompatActivity(), KodeinAware {
 
     private fun handleState(state: ScreenState<ChuckNorrisFacts>) {
         when (state) {
-            ScreenState.Loading -> showLoadingView()
-            is ScreenState.Result -> updateFact(state.result)
-            is ScreenState.Failed -> showFailedMessage()
-            is ScreenState.Error -> showErrorMessage(state.error)
+            Loading -> showLoadingView()
+            is Result -> updateFact(state.result)
+            is Error -> showErrorMessage(state.error)
         }
     }
 
     private fun updateFact(fact: ChuckNorrisFacts) {
         mAdapterChuckNorris.updateDataSet(fact)
-    }
-
-    private fun showFailedMessage() {
-        Toast.makeText(
-            applicationContext, "Erro: Sua oração foi fraca, tente novamente",
-            Toast.LENGTH_LONG
-        ).show()
     }
 
     private fun showErrorMessage(result: Throwable) {
