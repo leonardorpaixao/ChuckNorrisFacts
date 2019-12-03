@@ -5,71 +5,77 @@
         android:id="@+id/myConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/transparent"
+        android:background="@color/white"
+        android:orientation="vertical"
         tools:context=".view.fact_by_category.FactsByCategoryActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
             android:id="@+id/factByCategoryContent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        <Spinner
-                android:id="@+id/mySpinner"
-                android:layout_width="0dp"
-                android:layout_height="38dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:clickable="true"
-                android:contextClickable="true"
-                android:textAllCaps="true"
-                android:touchscreenBlocksFocus="false"
-                app:layout_constraintEnd_toStartOf="@+id/buttonRequest"
-                app:layout_constraintStart_toEndOf="@+id/textView3"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent"
+            android:visibility="visible">
 
         <TextView
-                android:id="@+id/textView3"
-                android:layout_width="0dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="8dp"
+                android:id="@+id/factByCategoryTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:gravity="center"
                 android:text="@string/category"
+                android:textColor="@color/gray"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-                android:id="@+id/buttonRequest"
-                android:layout_width="wrap_content"
-                android:layout_height="56dp"
+
+        <Spinner
+                android:id="@+id/mySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/factByCategoryTitle"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="@android:color/transparent"
-                android:contentDescription="@string/button_request_fact"
-                android:drawableBottom="@android:drawable/ic_input_add"
-                android:elevation="1dp"
-                android:src="@drawable/outline_search_black_18dp"
-                android:text="@string/button_request_fact"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:contextClickable="true"
+                android:textAllCaps="true"
+                android:touchscreenBlocksFocus="false" />
+
+        <View
+                android:id="@+id/factByCategoryTopDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/mySpinner"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/light_gray" />
+
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewfFactByCategory"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="76dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mySpinner"
-                app:layout_constraintVertical_bias="1.0" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/factByCategoryDivider"
+                android:layout_below="@+id/factByCategoryTopDivider"
+                android:layout_margin="16dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+                android:id="@+id/factByCategoryDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_above="@+id/buttonRequest"
+                android:layout_marginBottom="8dp"
+                android:background="@color/light_gray" />
+
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonRequest"
+                style="@style/commomButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="@string/button_request_fact" />
+
+    </RelativeLayout>
 
     <include
             android:id="@+id/factByCategorieLoadingState"
@@ -77,6 +83,5 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:visibility="gone"/>
-
+            android:visibility="gone" />
 </RelativeLayout>

@@ -14,10 +14,13 @@ object Versions {
     const val gms = "4.2.0"
     const val fabric = "1.26.1"
     const val kodeinDI = "6.0.1"
+    const val materialDesign = "1.1.0-beta02"
 
 }
 
 object Dependencies {
+    const val materialDesign = "com.google.android.material:material:${Versions.materialDesign}"
+
     const val kotlinLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     const val appCompatX = "androidx.appcompat:appcompat:${Versions.appCompatXVersion}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraint}"

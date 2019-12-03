@@ -11,7 +11,7 @@
     <string name="random_fact">Random Fact</string>
     <string name="fact_by_category">Fact by category</string>
     <string name="fact_by_word">Fact by word</string>
-    <string name="category">Category</string>
+    <string name="category">Choose a category </string>
     <string name="msgEmptySearch">Error: Please, insert any word!</string>
     <string name="textviewerror">textViewError</string>
     <string name="imagebutton">imageButton</string>

@@ -118,6 +118,7 @@ class FactsByCategoryActivity : AppCompatActivity(), KodeinAware {
                 ).show()
             }
             is ScreenState.Result -> {
+                listCategories = categoryScreenState.result
                 updateCategoriesList(categoryScreenState.result)
             }
         }
@@ -125,9 +126,21 @@ class FactsByCategoryActivity : AppCompatActivity(), KodeinAware {
     }
 
     private fun updateCategoriesList(listOfCategories: List<String>) {
+        val newList = mutableListOf<String>()
+            listOfCategories.map {
+            newList.add(it.toUpperCase())
+        }
+
         isShowingLoadingState(false)
         mySpinner.adapter =
-            ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, listOfCategories)
+            ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item,
+                newList
+            )
+                .also { adapter ->
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                }
     }
 
     private fun setSelectedCategory(selectedCategory: String) {
