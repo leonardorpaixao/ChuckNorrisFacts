@@ -90,6 +90,7 @@ class FactsByCategoryActivity : AppCompatActivity(), KodeinAware {
                 isShowingLoadingState(true)
             }
             is ScreenState.Error -> {
+                isShowingLoadingState(false)
                 Toast.makeText(
                     this, "Erro: Houve um erro na requisição. Tente novamente.",
                     Toast.LENGTH_LONG
@@ -112,6 +113,7 @@ class FactsByCategoryActivity : AppCompatActivity(), KodeinAware {
                 isShowingLoadingState(true)
             }
             is ScreenState.Error -> {
+                isShowingLoadingState(false)
                 Toast.makeText(
                     this, "Erro: Houve um erro na requisição. Tente novamente.",
                     Toast.LENGTH_LONG

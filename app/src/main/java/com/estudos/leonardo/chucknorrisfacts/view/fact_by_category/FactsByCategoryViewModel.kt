@@ -13,14 +13,17 @@ internal class FactsByCategoryViewModel(
     private val factsService: FactsService
 ) : ViewModel() {
 
-    fun getCategoriesList(){
-    setCategoriescreenState(ScreenState.Loading)
+    fun getCategoriesList() {
+        setCategoriescreenState(ScreenState.Loading)
         factsService.getCategories()
             .setSubscriber()
-            ?.doOnError { setScreenState(ScreenState.Error(it)) }
-            ?.subscribe {
+
+            ?.subscribe({
                 setCategoriescreenState(ScreenState.Result(it.categories))
-            }
+            },
+                {
+                    setScreenState(ScreenState.Error(it))
+                })
 
     }
 
@@ -45,9 +48,11 @@ internal class FactsByCategoryViewModel(
         setScreenState(ScreenState.Loading)
         factsService.getFactByCategory(category)
             .setSubscriber()
-            ?.doOnError { setScreenState(ScreenState.Error(it)) }
-            ?.subscribe { fact ->
+            ?.subscribe({ fact ->
                 setScreenState(ScreenState.Result(fact))
-            }
+            },
+                {
+                    setScreenState(ScreenState.Error(it))
+                })
     }
 }
