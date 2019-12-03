@@ -26,7 +26,7 @@ class FactsInfraStructure : FactsService {
         val gson = GsonBuilder().setLenient().create()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://api.chucknorris.io/jokes/")
+            .baseUrl("https://api.chucknorris.io/jokes/")
             .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(httpClient.build())

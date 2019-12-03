@@ -61,6 +61,7 @@ class FactsByCategoryActivity : AppCompatActivity(), KodeinAware {
                 id: Long
             ) {
                 setSelectedCategory(listCategories.get(position))
+
             }
         }
 
