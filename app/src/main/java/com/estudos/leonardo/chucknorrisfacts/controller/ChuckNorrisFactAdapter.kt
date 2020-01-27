@@ -1,12 +1,11 @@
 package com.estudos.leonardo.chucknorrisfacts.controller
 
-
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFacts
 import com.estudos.leonardo.chucknorrisfacts.R
+import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFacts
 
 
 class ChuckNorrisFactAdapter(
@@ -29,13 +28,15 @@ class ChuckNorrisFactAdapter(
         holderChuckNorris.bindView(fact, context)
     }
 
-    //Adiciona um novo item a RecyclerView, e à atualiza.
-    fun updateDataSet(fact: ChuckNorrisFacts) {
-        this.facts.add(fact)
+    fun updateAdapterList(fact: ChuckNorrisFacts) {
+        val newList = mutableListOf<ChuckNorrisFacts>()
+        newList.add(fact)
+        newList.addAll(this.facts)
+        this.facts = newList
         notifyDataSetChanged()
     }
-    //Zera a lista do adapter e atualiza a Recycler View
-    fun resetList(){
+
+    fun resetList() {
         facts = mutableListOf<ChuckNorrisFacts>()
         notifyDataSetChanged()
     }

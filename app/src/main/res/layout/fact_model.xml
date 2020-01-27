@@ -1,51 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools" app:cardBackgroundColor="#FFFFFF"
+        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/mcardview"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_margin="8dp"
-        android:orientation="vertical" app:cardElevation="8dp">
-    <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:cardCornerRadius="4dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardElevation="2dp">
+
 
         <TextView
-                android:text="@string/textviewfact"
-                android:layout_width="0dp"
+                android:id="@+id/textViewFact"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textViewFact" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:textSize="24sp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/textviewfact"
+                android:textSize="24sp"
                 android:textStyle="bold"
-        />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Isso é um curioso fato de Chuck Norris. Compartilhe!" />
+
+        <RelativeLayout
+                android:id="@+id/modelBottomContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/textViewFact">
+
         <TextView
-                android:text="@string/textviewcategory"
+                android:id="@+id/textViewCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textViewCategory"
-                app:layout_constraintStart_toStartOf="@+id/textViewFact" android:textAlignment="center"
-                android:textColor="#FFFFFF" android:background="@color/colorAccent" android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/textViewFact" android:layout_marginTop="8dp"
-                app:layout_constraintVertical_bias="0.0" android:textAllCaps="true"/>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:padding="2dp"
+                android:background="@color/colorAccent"
+                android:text="@string/textviewcategory"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+               />
 
         <ImageButton
                 android:id="@+id/buttonShare"
-                android:layout_width="40dp"
-                android:layout_height="39dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
+                android:layout_alignParentEnd="true"
                 android:contentDescription="@string/imagebutton"
-                android:forceHasOverlappingRendering="false"
-                android:foregroundGravity="center"
-                android:src="@drawable/ic_share"
-                android:textAlignment="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textViewCategory"
-                app:layout_constraintVertical_bias="0.0"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+                android:foregroundGravity="right"
+                android:src="@drawable/ic_share_fact"
+                android:backgroundTint="@android:color/transparent"
+                />
+        </RelativeLayout>
+        <View
+                android:id="@+id/factByCategoryTopDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/modelBottomContent"
+                android:layout_marginTop="8dp"
+                android:background="@color/light_gray"/>
+
+</RelativeLayout>

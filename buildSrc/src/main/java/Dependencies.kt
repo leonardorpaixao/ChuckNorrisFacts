@@ -13,11 +13,14 @@ object Versions {
     const val okHttp = "3.14.0"
     const val gms = "4.2.0"
     const val fabric = "1.26.1"
-    const val kodeinDI = "6.3.3"
+    const val kodeinDI = "6.0.1"
+    const val materialDesign = "1.1.0-beta02"
 
 }
 
 object Dependencies {
+    const val materialDesign = "com.google.android.material:material:${Versions.materialDesign}"
+
     const val kotlinLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     const val appCompatX = "androidx.appcompat:appcompat:${Versions.appCompatXVersion}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraint}"
@@ -39,9 +42,9 @@ object Dependencies {
     const val retrofitConverter = "com.squareup.retrofit2:converter-gson:${Versions.retroFit}"
     const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
 
-    val kodein = "org.kodein.di:kodein-di-generic-jvm:${Versions.kodeinDI}"
-    val kodeinConf = "org.kodein.di:kodein-di-conf-jvm:${Versions.kodeinDI}"
-    val kodeinAndroid = "org.kodein.di:kodein-di-framework-android-x:${Versions.kodeinDI}"
+    const val kodein = "org.kodein.di:kodein-di-generic-jvm:${Versions.kodeinDI}"
+    const val kodeinConf = "org.kodein.di:kodein-di-conf-jvm:${Versions.kodeinDI}"
+    const val kodeinAndroid = "org.kodein.di:kodein-di-framework-android-x:${Versions.kodeinDI}"
 }
 
 object VersionTest {
