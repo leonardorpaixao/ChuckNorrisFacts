@@ -3,6 +3,7 @@ package com.estudos.leonardo.chucknorrisfacts.view.random_fact
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.estudos.leonardo.chucknorrisfacts.common.ext.setSubscriber
 import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFacts
 import com.estudos.leonardo.chucknorrisfacts.domain.model.ScreenState
 import com.estudos.leonardo.chucknorrisfacts.domain.service.FactsService
@@ -19,9 +20,8 @@ class RandomFactsViewModel(
     fun getRandomFact() {
         screenState.value = ScreenState.Loading
         factsService.getRandomFact()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
+            .setSubscriber()
+            ?.subscribe({
                 screenState.value = ScreenState.Result(it)
             }, { e ->
                 e.printStackTrace()

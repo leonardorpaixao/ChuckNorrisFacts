@@ -37,7 +37,7 @@ class ChuckNorrisFactAdapter(
     }
 
     fun resetList() {
-        facts = mutableListOf<ChuckNorrisFacts>()
+        facts = mutableListOf()
         notifyDataSetChanged()
     }
 

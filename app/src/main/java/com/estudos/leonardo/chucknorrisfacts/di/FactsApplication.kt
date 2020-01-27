@@ -5,6 +5,7 @@ import com.estudos.leonardo.chucknorrisfacts.controller.ChuckNorrisFactAdapter
 import com.estudos.leonardo.chucknorrisfacts.data.FactsInfraStructure
 import com.estudos.leonardo.chucknorrisfacts.domain.service.FactsService
 import com.estudos.leonardo.chucknorrisfacts.view.fact_by_category.FactsByCategoryViewModel
+import com.estudos.leonardo.chucknorrisfacts.view.fact_by_word.FactByWordViewModel
 import com.estudos.leonardo.chucknorrisfacts.view.random_fact.RandomFactsViewModel
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -28,6 +29,8 @@ class FactsApplication : Application(), KodeinAware {
         bind() from provider { RandomFactsViewModel(factsService = instance()) }
 
         bind() from provider { FactsByCategoryViewModel(factsService = instance()) }
+
+        bind() from provider { FactByWordViewModel(factsService = instance()) }
 
     }
 
