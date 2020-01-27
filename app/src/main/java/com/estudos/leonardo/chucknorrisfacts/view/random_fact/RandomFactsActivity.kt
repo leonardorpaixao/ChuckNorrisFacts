@@ -11,6 +11,7 @@ import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFacts
 import com.estudos.leonardo.chucknorrisfacts.domain.model.ScreenState
 import com.estudos.leonardo.chucknorrisfacts.domain.model.ScreenState.*
 import kotlinx.android.synthetic.main.activity_random_chucknorris_fact.*
+import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
