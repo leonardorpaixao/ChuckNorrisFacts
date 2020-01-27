@@ -11,7 +11,6 @@ object Versions {
     const val rxAndroid = "1.2.1"
     const val retroFit = "2.5.0"
     const val okHttp = "3.14.0"
-    const val gms = "4.2.0"
     const val fabric = "1.26.1"
     const val kodeinDI = "6.0.1"
     const val materialDesign = "1.1.0-beta02"
