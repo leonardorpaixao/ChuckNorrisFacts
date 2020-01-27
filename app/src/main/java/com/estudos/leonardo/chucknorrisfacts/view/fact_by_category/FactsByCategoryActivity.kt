@@ -104,7 +104,7 @@ class FactsByCategoryActivity : AppCompatActivity(), KodeinAware {
 
     private fun updateFactAdapter(chuckNorrisFact: ChuckNorrisFacts) {
         isShowingLoadingState(false)
-        factAdapter.updateDataSet(chuckNorrisFact)
+        factAdapter.updateAdapterList(chuckNorrisFact)
     }
 
     private fun handleScreenStateCategory(categoryScreenState: ScreenState<List<String>>) {

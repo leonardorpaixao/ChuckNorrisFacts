@@ -23,7 +23,6 @@ class DashBoardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dash_board)
-       // getListOfCategories()
         listenButtons()
         listenToNavigate()
 
@@ -47,31 +46,6 @@ class DashBoardActivity : AppCompatActivity() {
             }
         })
 
-    }
-
-    //Atualiza lista de categorias dos fatos.
-    /*fun getListOfCategories(): Int
-    {
-        val api = FactsInfraStructure(instance())
-       return api.categories()
-            .subscribeOn(Schedulers.io())
-            ?.observeOn(AndroidSchedulers.mainThread())
-            ?.subscribe({ categories ->
-
-                categories.categories.map {
-                    updateList(it.toUpperCase())
-
-                }
-            }, { e ->
-                e.printStackTrace()
-            }, {
-
-            })
-    }*/
-
-    //Adiciona item a mutableList
-    fun updateList(category: String) {
-        this.listCategories.add(category)
     }
 
     fun listenButtons(){

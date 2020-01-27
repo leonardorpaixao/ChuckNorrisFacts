@@ -14,15 +14,14 @@ internal class FactsByCategoryViewModel(
 ) : ViewModel() {
 
     fun getCategoriesList() {
-        setCategoriescreenState(ScreenState.Loading)
+        setCategoriesScreenState(ScreenState.Loading)
         factsService.getCategories()
             .setSubscriber()
-
             ?.subscribe({
-                setCategoriescreenState(ScreenState.Result(it.categories))
+                setCategoriesScreenState(ScreenState.Result(it.categories))
             },
                 {
-                    setScreenState(ScreenState.Error(it))
+                    setCategoriesScreenState(ScreenState.Error(it))
                 })
 
     }
@@ -40,7 +39,7 @@ internal class FactsByCategoryViewModel(
 
     fun listenCategories(): LiveData<ScreenState<List<String>>> = categoriesScreenState
 
-    private fun setCategoriescreenState(screenState: ScreenState<List<String>>) {
+    private fun setCategoriesScreenState(screenState: ScreenState<List<String>>) {
         this.categoriesScreenState.value = screenState
     }
 

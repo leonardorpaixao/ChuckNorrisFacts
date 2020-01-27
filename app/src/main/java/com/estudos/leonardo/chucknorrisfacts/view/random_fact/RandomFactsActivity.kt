@@ -39,7 +39,7 @@ class RandomFactsActivity : AppCompatActivity(), KodeinAware {
     }
 
     private fun updateFact(fact: ChuckNorrisFacts) {
-        mAdapterChuckNorris.updateDataSet(fact)
+        mAdapterChuckNorris.updateAdapterList(fact)
     }
 
     private fun showErrorMessage(result: Throwable) {
