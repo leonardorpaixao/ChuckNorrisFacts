@@ -4,37 +4,11 @@ package com.estudos.leonardo.chucknorrisfacts.data
 import com.estudos.leonardo.chucknorrisfacts.domain.model.Categories
 import com.estudos.leonardo.chucknorrisfacts.domain.model.ChuckNorrisFacts
 import com.estudos.leonardo.chucknorrisfacts.domain.service.FactsService
-import com.google.gson.GsonBuilder
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 import rx.Observable
 
-class FactsInfraStructure : FactsService {
-
-    private val api: OpenFactsGateway
-
-    init {
-        val logging = HttpLoggingInterceptor()
-        logging.level = HttpLoggingInterceptor.Level.BODY
-
-        val httpClient = OkHttpClient.Builder()
-        httpClient.addInterceptor(logging)
-
-        val gson = GsonBuilder().setLenient().create()
-
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.chucknorris.io/jokes/")
-            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .client(httpClient.build())
-            .build()
-
-        api = retrofit.create<OpenFactsGateway>(OpenFactsGateway::class.java)
-
-    }
+class FactsInfraStructure(
+    val api: OpenFactsGateway
+) : FactsService {
 
     override fun getCategories(): Observable<Categories> {
         return this.api.categories()
